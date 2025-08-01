@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Layout Responsivo</title>
+
+  <!-- Google Fonts & Ionicons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <link rel="stylesheet" href="src/reset.css">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+  <header>
+    <img src="src/img/573f717062f625d9852515569aa51967d5654788.png" alt="Logo" />
+    <ion-icon name="people" onclick="AbrirMenu()"></ion-icon>
+  </header>
+
+  <div class="container">
+    <!-- As mensagens serão renderizadas aqui dinamicamente pelo script.js -->
+  </div>
+
+  <footer>
+    <div class="text-group">
+      <input type="text" placeholder="Escreva aqui..." class="chat" />
+      <p class="status-chat">Enviando para Todos (público)</p>
+    </div>
+    <ion-icon name="paper-plane-outline" onclick="submitMessage(this)"></ion-icon>
+  </footer>
+
+ <div class="shadow hidden" onclick="FecharSeClickFora(event)">
+  <div class="hidden-menu">
+    <div class="top-text-container">
+      <div class="top-text">
+        <p>Escolha um contato para enviar mensagem:</p>
+      </div>
+    </div>
+
+    <!-- Lista de contatos renderizada dinamicamente aqui -->
+    <div class="contacts-list">
+      <!-- Exemplo fixo inicial (será substituído pelo JS) -->
+      <!-- 
+      <div class="receiver" onclick="SelectReceiver(this)">
+        <ion-icon name="people"></ion-icon>
+        <p>Todos</p>
+        <div class="mark not-hidden"><img src="src/img/Vector.png" alt=""></div>
+      </div>
+      -->
+    </div>
+
+    <div class="second-text">
+      <div class="top-text">
+        <p>Escolha a visibilidade:</p>
+      </div>
+    </div>
+
+    <div class="visibilities">
+      <div class="visibility" onclick="SelectVisibility(this)">
+        <div class="icon-and-text">
+          <ion-icon name="lock-open"></ion-icon>
+          <p>Público</p>
+        </div>
+        <div class="mark not-hidden">
+          <img src="src/img/Vector.png" alt="">
+        </div>
+      </div>
+      <div class="visibility" onclick="SelectVisibility(this)">
+        <div class="icon-and-text">
+          <ion-icon name="lock-closed"></ion-icon>    
+          <p>Reservadamente</p>
+        </div>
+        <div class="mark hidden">
+          <img src="src/img/Vector.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="src/script.js"></script>
+</body>
+</html>

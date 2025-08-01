@@ -1,0 +1,330 @@
+/* Reset já aplicado */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* remove scroll lateral */
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(112,112,112,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+header img {
+  max-width: 75px;
+  height: auto;
+}
+
+header ion-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 76%;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-y: auto;
+  word-wrap: break-word; /* evita que palavras longas quebrem layout */
+  margin-top: 12vh;
+  background-color: #F3F3F3;
+  padding-top: 20px;
+}
+
+/* Para garantir que a imagem dentro do container não ultrapasse */
+.container img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  box-shadow: 0 -4px 8px rgba(112,112,112,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+footer input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  flex-grow: 1;
+}
+
+footer input::placeholder {
+  font-style: italic;
+  color: black;
+}
+
+footer p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: grey;
+}
+
+footer ion-icon {
+  width: 26px;
+  height: 26px;
+  color: black;
+  flex-shrink: 0;
+}
+
+ion-icon {
+
+  display: block; /* evita comportamento inline estranho */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Sombra de fundo, começa invisível e não interage */
+.shadow {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+
+  opacity: 0;              /* invisível */
+  visibility: hidden;      /* não bloqueia clique */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;    /* não permite clicar quando invisível */
+  display: flex;           /* para alinhamento do menu */
+}
+
+/* Quando menu visível, sombra aparece */
+.shadow.menu-visivel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* permite clique */
+}
+
+/* Menu lateral escondido à direita */
+.hidden-menu {
+  width: 69%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  transform: translateX(100%); /* escondido à direita */
+  transition: transform 0.3s ease-in-out;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+  z-index: 3100; /* acima da sombra */
+}
+
+
+
+
+/* Menu lateral aparece deslizando para dentro */
+.shadow.menu-visivel .hidden-menu {
+  transform: translateX(0);
+}
+
+
+.not-hidden {
+  display: flex;
+}
+
+
+
+.hidden-menu p {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+
+    
+}
+
+.top-text {
+    display: flex;
+    width: 70%;
+    position: relative;
+}
+
+.menus-options {
+    margin-top: 12.59vh;
+    width: 100%;
+    height: 87.41%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+.top-text-container {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+.receivers {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.receivers p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+
+.receiver ion-icon {
+    height: 25px;
+    width: 25px;
+}
+
+.second-text {
+    width: 100%;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visibilities p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.visibility ion-icon {
+    height: 22px;
+    width: 22px;
+}
+
+.icon-and-text {
+    display: flex;
+    align-items: center;
+}
+.visibilities {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.receiver,
+.visibility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-bottom: 10px;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.grey-message {
+  width: 100%;
+  height: 40px;
+  background-color: #DCDCDC;
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.grey-message h2 {
+  color: grey;
+  font-weight: 400;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+.text-message-chat {
+  display: flex;
+  align-items: center;
+  width: calc(100vw - 15%);
+}
+
+.date {
+  padding: 5px;
+}
+
+.text-message-chat p strong{
+  font-weight: bold;
+}
+
+.white-message h2 {
+  color: grey;
+  font-weight: 400;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+.white-message {
+  width: 100%;
+  height: 40px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  margin: 3px 0;  
+}
+
+.red-message {
+  width: 100%;
+  height: 40px;
+  background-color: #FFDEDE;
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.red-message h2 {
+  color: grey;
+  font-weight: 400;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
